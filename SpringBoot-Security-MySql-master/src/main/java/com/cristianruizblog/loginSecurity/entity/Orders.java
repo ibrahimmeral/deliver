@@ -1,9 +1,9 @@
 package com.cristianruizblog.loginSecurity.entity;
 
 import javax.persistence.*;
-import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 public class Orders {
@@ -27,6 +27,18 @@ public class Orders {
     @JoinColumn(name = "payment_id", nullable = false)
     Payment payment;
 
+    @ManyToOne (fetch = FetchType.LAZY)
+    @JoinColumn(name = "short_schedule_id", nullable = false)
+    ShortSchedule shortSchedule;
+
+    public ShortSchedule getShortSchedule() {
+        return shortSchedule;
+    }
+
+    public void setShortSchedule(ShortSchedule shortSchedule) {
+        this.shortSchedule = shortSchedule;
+    }
+
     public Payment getPayment() {
         return payment;
     }
@@ -44,6 +56,15 @@ public class Orders {
 
     Timestamp saveTime;
 
+    Timestamp deliverTime;
+
+    public Timestamp getDeliverTime() {
+        return deliverTime;
+    }
+
+    public void setDeliverTime(Timestamp deliverTime) {
+        this.deliverTime = deliverTime;
+    }
 
     public State getState() {
         return state;

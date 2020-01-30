@@ -45,7 +45,8 @@
         <th class="column-title"> Tip</th>
         <th class="column-title"> Fee</th>
         <th class="column-title"> Payment</th>
-
+        <th class="column-title"> Ready Time</th>
+        <th class="column-title"> Schedule Time</th>
         <th class="column-title">Save</th>
         <th class="column-title">Delete</th>
     </tr>
@@ -61,13 +62,15 @@
         <td th:text="${order.getTel()}"></td>
         <td th:text="${order.getAddress()}"></td>
         <td th:text="${order.client.firmName}"></td>
-        <td><input type="text" th:name="tip" th:value="${order.tip}" /></td>
+        <td><input type="text" width="35" th:name="tip" th:value="${order.tip}" /></td>
         <td>
             <input type="text" th:name="fee" th:value="${order.fee}" />
             <input type="hidden" th:name="id" th:value="${order.id}" />
 
         </td>
             <td th:text="${order.payment.payment_type}"></td>
+            <td th:text="${order.shortSchedule.definition}"></td>
+            <td th:text="${order.deliverTime}"></td>
         <td><button type="submit" class="btn btn-primary"><i class="fas fa-check"></i></button>
         </td>
         <td>

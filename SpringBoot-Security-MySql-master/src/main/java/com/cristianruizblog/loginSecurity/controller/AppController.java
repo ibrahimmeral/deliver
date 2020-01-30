@@ -3,10 +3,7 @@ package com.cristianruizblog.loginSecurity.controller;
 import com.cristianruizblog.loginSecurity.entity.Client;
 import com.cristianruizblog.loginSecurity.entity.Orders;
 import com.cristianruizblog.loginSecurity.entity.State;
-import com.cristianruizblog.loginSecurity.repository.OrderRepository;
-import com.cristianruizblog.loginSecurity.service.ClientService;
-import com.cristianruizblog.loginSecurity.service.OrderService;
-import com.cristianruizblog.loginSecurity.service.StateService;
+import com.cristianruizblog.loginSecurity.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +22,12 @@ public class AppController {
 
 	@Autowired
 	StateService stateService;
+
+	@Autowired
+	PaymentService paymentService;
+
+	@Autowired
+	ShortScheduleService shortScheduleService;
 
 
 	List<Orders> orders = new ArrayList<>();
